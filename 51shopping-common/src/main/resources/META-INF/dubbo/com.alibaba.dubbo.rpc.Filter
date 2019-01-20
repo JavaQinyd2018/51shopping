@@ -1,0 +1,1 @@
+dubboParamValidationFilter=com.qinyadong.shopping.filter.DubboParamValidationFilter
