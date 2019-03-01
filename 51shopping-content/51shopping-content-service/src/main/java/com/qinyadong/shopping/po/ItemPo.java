@@ -1,62 +1,47 @@
-package com.qinyadong.shopping.entity;
+package com.qinyadong.shopping.po;
 
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableName;
-import com.qinyadong.shopping.base.BaseEntity;
-import com.qinyadong.shopping.base.BaseRo;
 import com.qinyadong.shopping.emnus.ItemStatus;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.data.elasticsearch.annotations.Document;
+import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Date;
 
 /**
- * @author Yadong Qin
+ * @Author: Yadong Qin
+ * @Date: 2019/1/28
+ * 搜索 persistent object
  */
+
 @Getter
 @Setter
-@TableName("tb_item")
-public class Item extends BaseEntity {
+@Document(indexName = "iteminfo",type = "item")
+public class ItemPo extends BasePo{
 
+    @Field(type = FieldType.Text, analyzer = "ik_max_word",searchAnalyzer = "ik_max_word")
     private String title;
-    @TableField("sell_point")
     private String sellPoint;
-
+    @Field(type = FieldType.Double)
     private BigDecimal price;
-    @TableField("stock_count")
     private Integer stockCount;
-
     private Integer num;
-
     private String barcode;
-
     private String image;
-    @TableField("category_id")
     private Long categoryId;
-
     private ItemStatus status;
-    @TableField("item_sn")
     private String itemSn;
-    @TableField("cost_price")
+    @Field(type = FieldType.Double)
     private BigDecimal costPrice;
-    @TableField("market_price")
+    @Field(type = FieldType.Double)
     private BigDecimal marketPrice;
-    @TableField("is_default")
     private String isDefault;
-    @TableField("goods_id")
     private Long goodsId;
-    @TableField("seller_id")
     private String sellerId;
-    @TableField("cart_thumbnail")
     private String cartThumbnail;
-
     private String category;
-
     private String brand;
-
     private String spec;
-
     private String seller;
 }

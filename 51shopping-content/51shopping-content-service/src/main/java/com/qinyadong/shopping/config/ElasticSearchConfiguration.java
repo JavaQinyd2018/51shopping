@@ -1,6 +1,7 @@
 package com.qinyadong.shopping.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.elasticsearch.repository.config.EnableElasticsearchRepositories;
 
 import javax.annotation.PostConstruct;
 
@@ -10,6 +11,7 @@ import javax.annotation.PostConstruct;
  * ElasticSearch配置
  */
 @Configuration
+@EnableElasticsearchRepositories(basePackages = "com.qinyadong.shopping.es")
 public class ElasticSearchConfiguration {
 
     /**

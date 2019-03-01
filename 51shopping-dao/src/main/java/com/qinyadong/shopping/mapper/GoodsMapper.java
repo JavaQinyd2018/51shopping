@@ -12,6 +12,9 @@ import org.apache.ibatis.annotations.Param;
  */
 public interface GoodsMapper extends BaseMapper<Goods> {
 
+    /**
+     * 插入返回主键
+     */
     @Insert(
             "INSERT INTO `tb_goods` (\n" +
                     "\tseller_id,\n" +
@@ -54,8 +57,5 @@ public interface GoodsMapper extends BaseMapper<Goods> {
                     ")"
     )
     @Options(useGeneratedKeys = true,keyProperty = "id",keyColumn = "id")
-    /**
-     * 插入返回主键
-     */
     int save(@Param("goods") Goods goods);
 }
