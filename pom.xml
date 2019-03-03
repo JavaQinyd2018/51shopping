@@ -14,6 +14,7 @@
         <module>51shopping-shop</module>
         <module>51shopping-content</module>
         <module>51shopping-portal</module>
+        <module>51shopping-job</module>
     </modules>
     <packaging>pom</packaging>
 
